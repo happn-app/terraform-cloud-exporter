@@ -28,7 +28,7 @@ var (
 	WorkspacesInfo = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, workspacesSubsystem, "info"),
 		"Information about existing workspaces",
-		[]string{"id", "name", "organization", "terraform_version", "created_at", "environment", "current_run", "current_run_status", "current_run_created_at"}, nil,
+		[]string{"id", "name", "organization", "terraform_version", "created_at", "environment", "current_run", "current_run_status", "current_run_created_at", "execution_mode"}, nil,
 	)
 )
 
@@ -82,6 +82,7 @@ func getWorkspacesListPage(ctx context.Context, page int, organization string, c
 			getCurrentRunID(w.CurrentRun),
 			getCurrentRunStatus(w.CurrentRun),
 			getCurrentRunCreatedAt(w.CurrentRun),
+			w.ExecutionMode,
 		):
 		case <-ctx.Done():
 			return ctx.Err()
