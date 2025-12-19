@@ -1,6 +1,6 @@
 module github.com/kaizendorks/terraform-cloud-exporter
 
-go 1.25.0
+go 1.25
 
 require (
 	github.com/alecthomas/kong v0.2.12
