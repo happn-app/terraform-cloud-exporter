@@ -86,8 +86,8 @@ func TestScrapeWorkspaces(t *testing.T) {
 	}()
 
 	counterExpected := []MetricResult{
-		{labels: labelMap{"created_at": "1010-10-10 10:10:10.101 +0000 UTC", "current_run": "run-id-1", "current_run_status": "applied", "current_run_created_at": "1010-10-10 10:10:10.101 +0000 UTC", "environment": "test-environment", "id": "test-id-1", "name": "dev", "organization": "test-org", "terraform_version": "0.14.3"}, value: 1, metricType: dto.MetricType_GAUGE},
-		{labels: labelMap{"created_at": "1010-10-10 10:10:10.101 +0000 UTC", "current_run": "na", "current_run_status": "na", "current_run_created_at": "na", "environment": "test-environment", "id": "test-id-2", "name": "stg", "organization": "test-org", "terraform_version": "0.14.2"}, value: 1, metricType: dto.MetricType_GAUGE},
+		{labels: labelMap{"created_at": "1010-10-10 10:10:10.101 +0000 UTC", "current_run": "run-id-1", "current_run_status": "applied", "current_run_created_at": "1010-10-10 10:10:10.101 +0000 UTC", "environment": "test-environment", "id": "test-id-1", "name": "dev", "organization": "test-org", "terraform_version": "0.14.3", "execution_mode": ""}, value: 1, metricType: dto.MetricType_GAUGE},
+		{labels: labelMap{"created_at": "1010-10-10 10:10:10.101 +0000 UTC", "current_run": "na", "current_run_status": "na", "current_run_created_at": "na", "environment": "test-environment", "id": "test-id-2", "name": "stg", "organization": "test-org", "terraform_version": "0.14.2", "execution_mode": ""}, value: 1, metricType: dto.MetricType_GAUGE},
 	}
 	convey.Convey("Metrics comparison", t, func() {
 		for _, expect := range counterExpected {
