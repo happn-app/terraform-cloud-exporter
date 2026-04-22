@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-cloud-exporter
+  namespace: default
+  annotations:
+    github.com/project-slug: happn-app/terraform-cloud-exporter
+    backstage.io/techdocs-ref: dir:.
+  labels:
+    language: go
+    language_version: '1.25'
+    metrics_framework: prometheus
+spec:
+  type: service
+  lifecycle: production
+  owner: ops
